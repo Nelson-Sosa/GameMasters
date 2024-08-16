@@ -4,6 +4,7 @@ import {useNavigate } from "react-router-dom";
 import '../formProduct/formProduct.css';
 
 const FormProduct = () =>{
+    const [categoria, setCategoria] = useState('PC GAMER');
     const [nombre, setNombre] = useState("");
     const [marca, setMarca] = useState("");
     const [precio, setPrecio] = useState("");
@@ -15,6 +16,7 @@ const FormProduct = () =>{
         e.preventDefault();
 
         await axios.post('http://localhost:8000/api/agregar/producto',{
+            categoria,
             nombre,
             marca,
             precio,
@@ -47,6 +49,16 @@ const FormProduct = () =>{
         <div className="contenedor">
             <h2>Agregar Producto</h2>
             <form onSubmit={procesaForm}>
+                <p>
+                    <label>Categoria:</label>
+                    <select value={categoria} onChange={(e) => setCategoria(e.target.value)}>
+                        <option value="PC GAMER">PC GAMER</option>
+                        <option value="NOTEBOOK GAMER">NOTEBOOK GAMER</option>
+                        <option value="CONSOLAS">CONSOLAS</option>
+                        <option value="MOUSE">TECLADO</option>
+                        <option value="MONITOR">MONITOR</option>
+                    </select>
+                </p>
                 <p>
                 <label>Nombre:</label>
                 <input type="text"

@@ -1,23 +1,54 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
+# Node dependencies
 /node_modules
 /.pnp
 .pnp.js
 
-# testing
+# Testing
 /coverage
+/jest/
 
-# production
+# Production
 /build
+/.next/
+.next/
+out/
 
-# misc
-.DS_Store
+# Environment variables
+.env
 .env.local
+.env.development
 .env.development.local
+.env.test
 .env.test.local
+.env.production
 .env.production.local
 
+# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+/logs
+*.log
+
+# Miscellaneous
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.sublime-workspace
+
+# Binaries
+*.exe
+*.dll
+*.so
+*.dylib
+*.exe
+*.app
+
+# Build artifacts
+/dist
+/tmp
+.cache
+
+# Others
+*.log

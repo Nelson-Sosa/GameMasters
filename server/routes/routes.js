@@ -9,6 +9,7 @@ module.exports = (app) =>{
     app.delete("/api/remover/usuario",validarToken, UserController.removerUsuario);
     app.post("/api/agregar/producto", validarToken, ProductControler.agregarProducto);
     app.get('/api/productos',validarToken, ProductControler.todosLosProductos);
+    app.get('/api/products', validarToken, ProductControler.categoriaProductos);
     app.delete('/api/remover/product/:id', validarToken, ProductControler.removerProducto);
 }
 

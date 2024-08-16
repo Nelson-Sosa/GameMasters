@@ -3,10 +3,11 @@ const {request} = require('express');
 
 module.exports.agregarProducto = async (req, res) => {
     try {
-      const { nombre, marca, precio, descripcion } = req.body;
+      const { category, nombre, marca, precio, descripcion } = req.body;
   
       // Crear el nuevo producto
       const newProduct = await Product.create({
+        category,
         nombre,
         marca,
         precio,
@@ -38,3 +39,13 @@ module.exports.agregarProducto = async (req, res) => {
     .then(deleteProduct => res.json(deleteProduct))
     .catch(err => res.json(err));
   } 
+
+  module.exports.categoriaProductos = async (req, res) =>{
+    try{
+      const {category} = req.query;
+      const products = await Product.find(category ? {category} : {});
+      res.json(products)
+    } catch (error) {
+      res.status(500).json({error: 'Error al obtener productos'})
+    }
+  }

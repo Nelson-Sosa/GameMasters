@@ -71,6 +71,7 @@ export const Products = ({RemoverFromDom}) => {
                     {product.map((producto, idx) => {
                         return (
                             <li key={idx}>
+                                <strong>Categoria:</strong>{producto.category}<br/>
                                 <strong>Nombre:</strong> {producto.nombre} <br />
                                 <strong>Marca:</strong> {producto.marca} <br />
                                 <strong>Precio:</strong> {producto.precio} <br />
