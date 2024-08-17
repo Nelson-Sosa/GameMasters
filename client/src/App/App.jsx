@@ -15,7 +15,7 @@ const App = ()=> {
       <Route path="/" element={<Home />}/>
       <Route path="/login" element={ <FormularioLogin setLogin={setLogin} />} />
       <Route path='/register' element={<FormRegistro />}/>
-      <Route path='/products' element={ <Products />} />
+      <Route path='/category/:category' element={ <Products />} />
       <Route path='/agregar/product' element={<FormProduct />}/>
     </Routes>
     </div>

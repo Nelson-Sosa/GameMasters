@@ -4,7 +4,7 @@ import {useNavigate } from "react-router-dom";
 import '../formProduct/formProduct.css';
 
 const FormProduct = () =>{
-    const [categoria, setCategoria] = useState('PC GAMER');
+    const [category, setCategory] = useState('pcgamer');
     const [nombre, setNombre] = useState("");
     const [marca, setMarca] = useState("");
     const [precio, setPrecio] = useState("");
@@ -16,7 +16,7 @@ const FormProduct = () =>{
         e.preventDefault();
 
         await axios.post('http://localhost:8000/api/agregar/producto',{
-            categoria,
+            category,
             nombre,
             marca,
             precio,
@@ -30,6 +30,7 @@ const FormProduct = () =>{
             console.log(localStorage.getItem("token"))
             if(res.status ===200){
             setLogin(true)
+            setCategory("")
             setNombre("")
             setMarca("")
             setPrecio("")
@@ -51,12 +52,13 @@ const FormProduct = () =>{
             <form onSubmit={procesaForm}>
                 <p>
                     <label>Categoria:</label>
-                    <select value={categoria} onChange={(e) => setCategoria(e.target.value)}>
-                        <option value="PC GAMER">PC GAMER</option>
-                        <option value="NOTEBOOK GAMER">NOTEBOOK GAMER</option>
-                        <option value="CONSOLAS">CONSOLAS</option>
-                        <option value="MOUSE">TECLADO</option>
-                        <option value="MONITOR">MONITOR</option>
+                    <select value={category} onChange={(e) => setCategory(e.target.value)}>
+                        <option value="pcgamer">Pc Gamer</option>
+                        <option value="notebookgamer">Notebook Gamer</option>
+                        <option value="consolas">Consolas</option>
+                        <option value="mouse">Mouse</option>
+                        <option value="teclado">Teclado</option>
+                        <option value="monitor">Monitor</option>
                     </select>
                 </p>
                 <p>

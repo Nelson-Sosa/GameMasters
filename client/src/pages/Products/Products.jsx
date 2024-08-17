@@ -3,8 +3,10 @@ import axios from "axios";
 import { Link, useNavigate} from "react-router-dom";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import Navigate from "../Navigate/Navigate";
+import { useParams } from "react-router-dom";
 
 export const Products = ({RemoverFromDom}) => {
+    const {category} = useParams();
     const [product, setProduct] = useState([]);
     const [login, setLogin] = useState(false);
     const navegar = useNavigate();
@@ -32,7 +34,7 @@ export const Products = ({RemoverFromDom}) => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-            const res = await axios.get('http://localhost:8000/api/productos', {
+            const res = await axios.get(`http://localhost:8000/api/products?category=${category}`, {
                 headers: {
                     token_usuario: localStorage.getItem("token")
                 }
@@ -50,7 +52,7 @@ export const Products = ({RemoverFromDom}) => {
         };
         console.log("Products component rendered");
         fetchProducts();
-    }, []);
+    }, [category]);
 
     return (
         <>
@@ -59,7 +61,7 @@ export const Products = ({RemoverFromDom}) => {
         {
         (login)? //para comprobar si login es true
       <nav>
-        <Link to="/products">Todos los productos</Link>
+        <Link to="/category/:category">Todos los productos</Link>
         <br />
         <Link to='/agregar/product'>Agregar producto</Link>
       </nav> :
@@ -67,6 +69,7 @@ export const Products = ({RemoverFromDom}) => {
        }
                 <h1>Todos los productos:</h1>
                 <Navigate />
+                <h1>{category}</h1>
                 <ul>
                     {product.map((producto, idx) => {
                         return (

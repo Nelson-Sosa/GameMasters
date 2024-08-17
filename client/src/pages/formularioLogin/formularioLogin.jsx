@@ -24,7 +24,7 @@ const FormularioLogin = (props) => {
       localStorage.setItem("token", datos.token);
       props.setLogin(true);
       setError("");
-      navegacion("/products");
+      navegacion("/category/:category");
     }
   } catch (error) {
     const errorMessage = error.response

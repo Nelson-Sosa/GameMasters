@@ -2,28 +2,25 @@ import {Link} from "react-router-dom";
 import '../Navigate/Navigate.css';
 const Navigate = ()=>{
 
-
-
-
     return(
         <div className="cont-nav">
             <nav>
-                <Link to='*'>PC GAMER</Link>
+                <Link to='/category/pcgamer'>PC Gamer</Link>
             </nav>
             <nav>
-                <Link to='*'>NOTEBOOK GAMER</Link>
+                <Link to='/category/notebookgamer'>Notebook Gamer</Link>
             </nav>
             <nav>
-                <Link to='*'>Consolas</Link>
+                <Link to='/category/consolas'>Consolas</Link>
             </nav>
             <nav>
-                <Link to='*'>Mouse</Link>
+                <Link to='/category/mouse'>Mouse</Link>
             </nav>
             <nav>
-                <Link to='*'>Teclado</Link>
+                <Link to='/category/teclado'>Teclado</Link>
             </nav>
             <nav>
-                <Link to=''>Monitor</Link>
+                <Link to='/category/monitor'>Monitor</Link>
             </nav>
         </div>
     )
