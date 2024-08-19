@@ -4,7 +4,7 @@ import {useNavigate } from "react-router-dom";
 import '../formProduct/formProduct.css';
 
 const FormProduct = () =>{
-    const [category, setCategory] = useState('pcgamer');
+    const [category, setCategory] = useState('Pc Gamer');
     const [nombre, setNombre] = useState("");
     const [marca, setMarca] = useState("");
     const [precio, setPrecio] = useState("");
@@ -53,12 +53,12 @@ const FormProduct = () =>{
                 <p>
                     <label>Categoria:</label>
                     <select value={category} onChange={(e) => setCategory(e.target.value)}>
-                        <option value="pcgamer">Pc Gamer</option>
-                        <option value="notebookgamer">Notebook Gamer</option>
-                        <option value="consolas">Consolas</option>
-                        <option value="mouse">Mouse</option>
-                        <option value="teclado">Teclado</option>
-                        <option value="monitor">Monitor</option>
+                        <option value="Pc Gamer">Pc Gamer</option>
+                        <option value="Notebook Gamer">Notebook Gamer</option>
+                        <option value="Consolas">Consolas</option>
+                        <option value="Mouse">Mouse</option>
+                        <option value="Teclado">Teclado</option>
+                        <option value="Monitor">Monitor</option>
                     </select>
                 </p>
                 <p>

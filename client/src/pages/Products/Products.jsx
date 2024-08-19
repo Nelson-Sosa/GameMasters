@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios"; 
 import { Link, useNavigate} from "react-router-dom";
 import SearchBar from "../../components/SearchBar/SearchBar";
-import Navigate from "../Navigate/Navigate";
+import CustomNavigate from "../CustomNavigate/CustomNavigate";
 import { useParams } from "react-router-dom";
 import '../Products/Products.css';
 
@@ -43,6 +43,7 @@ export const Products = ({RemoverFromDom}) => {
                 if(res.status === 200){
                     setProduct(res.data);
                     setLogin(true);
+                    console.log(category);
                 }
             } catch (err) {
                 console.error("Ocurrió un error:", err.message);
@@ -68,9 +69,9 @@ export const Products = ({RemoverFromDom}) => {
       </nav> :
       ""
        }
-                <Navigate />
+                <CustomNavigate/>
                 <div className="prod-cont">
-                    <div>
+                    <div className="sub">
                 <h1>{category}</h1>   
                 <ul>
                     {product.map((producto, idx) => {
@@ -79,12 +80,14 @@ export const Products = ({RemoverFromDom}) => {
                                 <strong>Categoria:</strong>{producto.category}<br/>
                                 <strong>Nombre:</strong> {producto.nombre} <br />
                                 <strong>Marca:</strong> {producto.marca} <br />
-                                <strong>Precio:</strong> {producto.precio} <br />
+                                <strong>Precio:</strong> {producto.precio}<strong>Gs.</strong> <br />
                                 <strong>Descripción:</strong> {producto.descripcion}
-                                <button onClick={()=> deleteProduct(producto._id)}>Delete</button>
-                                <button>
+                                <div>
+                                <button className="btnD" onClick={()=> deleteProduct(producto._id)}>Delete</button>
+                                <button className="btnU">
                                     <Link to={`/actualizar/product/${producto._id}`}>Update</Link>
                                 </button>
+                                </div>
                             </li>
                         );
                     })}

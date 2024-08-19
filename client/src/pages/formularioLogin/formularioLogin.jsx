@@ -25,7 +25,7 @@ const FormularioLogin = (props) => {
       localStorage.setItem("token", datos.token);
       props.setLogin(true);
       setError("");
-      navegacion("/category/pcgamer");
+      navegacion("/category/Pc Gamer");
     }
   } catch (error) {
     const errorMessage = error.response
