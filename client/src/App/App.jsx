@@ -6,6 +6,7 @@ import { Products } from '../pages/Products/Products';
 import { useState } from 'react';
 import FormProduct from '../components/formProduct/formProduct';
 import FormRegistro from '../pages/formRegistro/formRegistro';
+import UpdateProduct from '../components/UpdateProduct/UpdateProduct';
 const App = ()=> {
   const [login, setLogin] = useState(false);
 
@@ -17,6 +18,7 @@ const App = ()=> {
       <Route path='/register' element={<FormRegistro />}/>
       <Route path='/category/:category' element={ <Products />} />
       <Route path='/agregar/product' element={<FormProduct />}/>
+      <Route path='/actualizar/product/:id' element={<UpdateProduct />} />
     </Routes>
     </div>
   );

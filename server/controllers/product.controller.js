@@ -1,3 +1,4 @@
+const { MongooseError } = require('mongoose');
 const Product = require('../models/product.models');
 const {request} = require('express');
 
@@ -48,4 +49,16 @@ module.exports.agregarProducto = async (req, res) => {
     } catch (error) {
       res.status(500).json({error: 'Error al obtener productos'})
     }
+  }
+
+  module.exports.updateProduct = (req, res) =>{
+    Product.findOneAndUpdate({_id: req.params.id}, req.body, {new:true})
+    .then(updaProduct => res.json(updaProduct))
+    .catch(error => res.json(error));
+  }
+
+  module.exports.getProduct = (req, res) =>{
+    Product.findOne({_id:req.params.id})
+    .then(product =>res.json(product))
+    .catch(error =>res.json(error))
   }

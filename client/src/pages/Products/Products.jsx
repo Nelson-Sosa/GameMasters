@@ -4,6 +4,7 @@ import { Link, useNavigate} from "react-router-dom";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import Navigate from "../Navigate/Navigate";
 import { useParams } from "react-router-dom";
+import '../Products/Products.css';
 
 export const Products = ({RemoverFromDom}) => {
     const {category} = useParams();
@@ -57,19 +58,20 @@ export const Products = ({RemoverFromDom}) => {
     return (
         <>
             <div>
-                <SearchBar />
+                <SearchBar/>
         {
         (login)? //para comprobar si login es true
-      <nav>
-        <Link to="/category/:category">Todos los productos</Link>
-        <br />
-        <Link to='/agregar/product'>Agregar producto</Link>
+      <nav className="btn-cont">
+        <button className="btn">
+        <Link to='/agregar/product'>Add product</Link>
+        </button>
       </nav> :
       ""
        }
-                <h1>Todos los productos:</h1>
                 <Navigate />
-                <h1>{category}</h1>
+                <div className="prod-cont">
+                    <div>
+                <h1>{category}</h1>   
                 <ul>
                     {product.map((producto, idx) => {
                         return (
@@ -80,10 +82,16 @@ export const Products = ({RemoverFromDom}) => {
                                 <strong>Precio:</strong> {producto.precio} <br />
                                 <strong>Descripción:</strong> {producto.descripcion}
                                 <button onClick={()=> deleteProduct(producto._id)}>Delete</button>
+                                <button>
+                                    <Link to={`/actualizar/product/${producto._id}`}>Update</Link>
+                                </button>
                             </li>
                         );
                     })}
+                    
                 </ul>
+                </div>
+                </div>
             </div>
         </>
     );

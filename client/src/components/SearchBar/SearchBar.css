@@ -1,4 +1,74 @@
-.searchBarContain{
+/* SearchBar.css */
+.searchBarContain {
     display: flex;
     justify-content: center;
-}
+    align-items: center;
+    padding: 20px;
+  }
+  
+  form {
+    max-width: 640px; /* Ajusta el ancho máximo según tus necesidades */
+    width: 100%;
+    margin: auto;
+  }
+  
+  .lab{
+        font-size: 20px;
+        color: #fff;
+        background-color: #007bff;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        text-align: center;
+  }
+  
+  .relative {
+    position: relative;
+  }
+  
+  input[type="search"] {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 14px;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    transition: border-color 0.3s, background-color 0.3s;
+  }
+  
+
+  
+  button[type="submit"] {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  button[type="submit"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(38, 143, 255, 0.4);
+  }
+  
+  @media (max-width: 768px) {
+    .searchBarContain {
+      padding: 10px;
+    }
+  
+    button[type="submit"] {
+      padding: 8px 16px;
+    }
+  }

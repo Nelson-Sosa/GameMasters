@@ -1,0 +1,32 @@
+
+  .btn{
+    padding: 5px 40px;
+    margin: 10px;
+    border: 1px solid #6495ED;
+    background-color: #F0F8FF;
+    color: #6495ED;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .btn:hover{
+    background-color: #F0F8FF;
+  }
+
+  .prod-cont{
+    display: flex;
+    justify-content: center;
+    background-color: aqua;
+    width: 100%;
+  }
+  .prod-cont div{
+    background-color: #6495ED;
+    width: 500px;
+    display: flex;
+    
+  }
+
+  .btn a{
+    text-decoration: none;
+  }

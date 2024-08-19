@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import '../formularioLogin/formularioLogin.css';
+import {Image} from "@nextui-org/image";
 
 const FormularioLogin = (props) => {
   const [correo, setCorreo] = useState("");
@@ -24,7 +25,7 @@ const FormularioLogin = (props) => {
       localStorage.setItem("token", datos.token);
       props.setLogin(true);
       setError("");
-      navegacion("/category/:category");
+      navegacion("/category/pcgamer");
     }
   } catch (error) {
     const errorMessage = error.response
@@ -42,6 +43,12 @@ const FormularioLogin = (props) => {
   return (
     <div className="contenedor"> 
       <h1>Login</h1>
+      <Image className="im"
+      width={300}
+      
+      alt="NextUI hero Image"
+      src="/img/minecraft.jpg"
+    />
       <form onSubmit={procesaLogin} className="">
         <div>
           <label htmlFor="correo">mail:</label>
