@@ -2,7 +2,8 @@ import axios from "axios";
 import { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import '../formularioLogin/formularioLogin.css';
-import {Image} from "@nextui-org/image";
+import backgroundImage1 from '../../assets/images/minecraft.jpg';
+
 
 const FormularioLogin = (props) => {
   const [correo, setCorreo] = useState("");
@@ -41,14 +42,8 @@ const FormularioLogin = (props) => {
   };
 
   return (
-    <div className="contenedor"> 
+    <div className="contLogin" style={{ backgroundImage: `url(${backgroundImage1})` }}> 
       <h1>Login</h1>
-      <Image className="im"
-      width={300}
-      
-      alt="NextUI hero Image"
-      src="/img/minecraft.jpg"
-    />
       <form onSubmit={procesaLogin} className="">
         <div>
           <label htmlFor="correo">mail:</label>

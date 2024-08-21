@@ -1,19 +1,4 @@
 
-  .btn{
-    padding: 5px 40px;
-    margin: 10px;
-    border: 1px solid #6495ED;
-    background-color: #F0F8FF;
-    color: #6495ED;
-    border-radius: 10px;
-    font-size: 15px;
-    font-weight: bold;
-    text-decoration: none;
-  }
-  .btn:hover{
-    background-color: #d7e2eb;
-    transform: translateY(-2px);
-  }
   .btnD{
     padding: 8px 45px;
     margin: 12px;

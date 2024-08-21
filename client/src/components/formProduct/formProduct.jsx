@@ -11,9 +11,30 @@ const FormProduct = () =>{
     const [descripcion, setDescripcion] = useState("");
     const navegar = useNavigate();
     const [login, setLogin] = useState(false);
+    const [errors, setErrors] = useState({});
+
+    const validateForm = ()=>{
+        const newErrors = {}
+        if(!category) newErrors.category = "Category is required";
+
+        if(!nombre) newErrors.nombre = "Name is required"
+
+        if(!marca) newErrors.marca = "Brand is required"
+
+        if(!precio) newErrors.precio = "price is required"
+
+        if(!descripcion) newErrors.descripcion = "description is required"
+        
+        return newErrors;
+    }
 
     const procesaForm = async (e) =>{
         e.preventDefault();
+        const newErrors = validateForm();
+        if(Object.keys(newErrors).length > 0){
+            setErrors(newErrors);
+            return;
+        }
 
         await axios.post('http://localhost:8000/api/agregar/producto',{
             category,
@@ -60,6 +81,7 @@ const FormProduct = () =>{
                         <option value="Teclado">Teclado</option>
                         <option value="Monitor">Monitor</option>
                     </select>
+                    {errors.category && <span className="error">{errors.category}</span>}
                 </p>
                 <p>
                 <label>Nombre:</label>
@@ -67,6 +89,7 @@ const FormProduct = () =>{
                         name="nombre"
                         onChange={(e)=> setNombre(e.target.value)}
                         value={nombre} />
+                        {errors.nombre && <span className="error">{errors.nombre}</span>}
                 </p>
                 <p>
                     <label>Marca:</label>
@@ -74,6 +97,7 @@ const FormProduct = () =>{
                            name="marca"
                            onChange={(e)=> setMarca(e.target.value)}
                            value={marca} />
+                           {errors.marca && <span className="error">{errors.marca}</span>}
                 </p>
                 <p>
                     <label>Precio:</label>
@@ -81,6 +105,7 @@ const FormProduct = () =>{
                            name="precio"
                            onChange={(e)=> setPrecio(e.target.value)}
                            value={precio} />
+                           {errors.precio && <span className="error">{errors.precio}</span>}
                 </p>
                 <p>
                     <label>Descripcion</label>
@@ -88,6 +113,7 @@ const FormProduct = () =>{
                           name="descripcion"
                           onChange={(e) => setDescripcion(e.target.value)}
                           value={descripcion} />
+                          {errors.descripcion && <span className="error">{errors.descripcion}</span>}
                 </p>
                 <button>Enviar</button>
             </form>

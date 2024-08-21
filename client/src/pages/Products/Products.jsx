@@ -60,15 +60,6 @@ export const Products = ({RemoverFromDom}) => {
         <>
             <div>
                 <SearchBar setSearchResultados={setProduct}/>
-        {
-        (login)? //para comprobar si login es true
-      <nav className="btn-cont">
-        <button className="btn">
-        <Link to='/agregar/product'>Add product</Link>
-        </button>
-      </nav> :
-      ""
-       }
                 <CustomNavigate />
                 <div className="prod-cont">
                     <div className="sub">
