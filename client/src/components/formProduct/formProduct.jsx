@@ -48,7 +48,7 @@ const FormProduct = () =>{
     return(
         <>
         <div className="contenedor">
-            <h2>Agregar Producto</h2>
+            <h2>Add product</h2>
             <form onSubmit={procesaForm}>
                 <p>
                     <label>Categoria:</label>

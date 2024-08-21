@@ -1,9 +1,12 @@
 import {Link} from "react-router-dom";
 import './CustomNavigate.css';
+
+
 const CustomNavigate = ()=>{
+    
 
     return(
-        <div className="cont-nav">
+        <div className="cont-nav" > 
             <nav>
                 <Link to='/category/Pc Gamer'>Pc Gamer</Link>
             </nav>

@@ -4,7 +4,8 @@
     background-color: darkgray;
     height: 70px;
     padding: 0 20px;
-
+    width: 100%;
+   
 }
 
 .cont-nav nav{
@@ -23,6 +24,9 @@
     transition: color 0.3s ease;
 }
 
-.cont-nav a:hover{
-    color: #f0f0f0;
+.cont-nav a:hover {
+    color: #3ad8f8; /* Mantiene el color rojo para el hover */
+    text-decoration: none;
+    transition: color 0.3s ease-in-out, transform 0.2s ease-in-out; /* Suaviza la transición del color */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño del enlace al hacer hover */
 }

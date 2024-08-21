@@ -59,7 +59,7 @@ export const Products = ({RemoverFromDom}) => {
     return (
         <>
             <div>
-                <SearchBar/>
+                <SearchBar setSearchResultados={setProduct}/>
         {
         (login)? //para comprobar si login es true
       <nav className="btn-cont">
@@ -69,7 +69,7 @@ export const Products = ({RemoverFromDom}) => {
       </nav> :
       ""
        }
-                <CustomNavigate/>
+                <CustomNavigate />
                 <div className="prod-cont">
                     <div className="sub">
                 <h1>{category}</h1>   

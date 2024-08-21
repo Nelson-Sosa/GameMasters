@@ -4,6 +4,11 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
+    background-size: cover; /* Opcional: Ajusta el tamaño de la imagen */
+    background-position: center; /* Opcional: Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    height: 100px;
+    width: 100%;
   }
   
   form {

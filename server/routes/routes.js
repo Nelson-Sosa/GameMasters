@@ -1,8 +1,14 @@
 const UserController = require('../controllers/user.controllers');
 const ProductControler = require('../controllers/product.controller');
 const validarToken = require('../middlewares/validarToken');
+const express = require('express')
+const router= express.Router();
+
+//Ruta para buscado global
+router.get('/search', validarToken, ProductControler.searchGlobal);
 
 module.exports = (app) =>{
+    app.use("/api/product", validarToken, router);
     app.get("/api/usuarios",validarToken, UserController.todosLosUsuarios);
     app.post("/api/login", UserController.login);
     app.post("/api/agregar/usuario", UserController.agregarUsuario);
@@ -14,5 +20,6 @@ module.exports = (app) =>{
     app.delete('/api/remover/product/:id', validarToken, ProductControler.removerProducto);
     app.get('/api/product/:id', validarToken, ProductControler.getProduct);
 }
+
 
 
