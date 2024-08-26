@@ -1,8 +1,8 @@
 /* SearchBar.css */
 .searchBarContain {
     display: flex;
-    justify-content: center;
     align-items: center;
+   
     padding: 20px;
     background-size: cover; /* Opcional: Ajusta el tamaño de la imagen */
     background-position: center; /* Opcional: Centra la imagen */
@@ -79,6 +79,7 @@
   }
 
   .btn{
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Añade una animación al logo */
     padding: 5px 40px;
     margin: 10px;
     border: 1px solid #6495ED;
@@ -88,12 +89,31 @@
     font-size: 15px;
     font-weight: bold;
     text-decoration: none;
+    margin-right: 30px;
   }
   .btn:hover{
     background-color: #d7e2eb;
     transform: translateY(-2px);
   }
 
-  .btn-cont{
-    margin-bottom: 40px;
-  }
+
+  .searchBarContain img {
+    width: 120px; /* Aumenta ligeramente el tamaño del logo */
+    border-radius: 15px; /* Añade bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añade una sombra sutil */
+    border: 1px solid #007bff; /* Añade un borde fino con un color destacado */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Añade una animación al logo */
+}
+
+.searchBarContain img:hover {
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño al pasar el cursor */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Aumenta la sombra al pasar el cursor */
+}
+.btn-cont{
+  display: flex;
+  flex-direction: column;
+  margin-right: 30px;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+}

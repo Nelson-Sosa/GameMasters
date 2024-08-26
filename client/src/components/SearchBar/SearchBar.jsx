@@ -31,13 +31,9 @@ const productSearch = async (e) =>{
 
     return(
       <div className="searchBarContain" style={{ backgroundImage: `url(${backgroundImage})` }}>
-
-      <nav className="btn-cont">
-        <button className="btn">
-        <Link to='/agregar/product'>Add product</Link>
-        </button>
-      </nav> 
-
+      <div>
+        <img src="/img/GameMastersLogo-.png" alt="" />
+      </div>
         <form class="max-w-md mx-auto" onSubmit={productSearch}>
           <label className='lab'
             for="default-search"
@@ -60,6 +56,14 @@ const productSearch = async (e) =>{
             </button>
           </div>
         </form>
+        <div className='btn-cont'>
+        <button className="btn">
+        <Link to='/agregar/product'>Add product</Link>
+        </button>
+        <button className='btn'>
+        <Link to='*'>Add Supplier</Link>
+        </button>
+        </div>
       </div>
    
     )

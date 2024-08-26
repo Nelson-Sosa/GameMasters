@@ -14,7 +14,18 @@
     justify-content: center;
     flex-direction: row;
     margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(83, 199, 193, 0.897); /* Añade una sombra sutil */
+    border: 1px solid #edeeee; /* Añade un borde fino con un color destacado */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
 }
+.cont-nav nav:hover{
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
 
 .cont-nav a{
     color: white;
@@ -25,7 +36,7 @@
 }
 
 .cont-nav a:hover {
-    color: #3ad8f8; /* Mantiene el color rojo para el hover */
+    
     text-decoration: none;
     transition: color 0.3s ease-in-out, transform 0.2s ease-in-out; /* Suaviza la transición del color */
     transform: scale(1.05); /* Aumenta ligeramente el tamaño del enlace al hacer hover */

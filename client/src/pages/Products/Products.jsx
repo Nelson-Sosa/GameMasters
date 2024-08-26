@@ -72,7 +72,9 @@ export const Products = ({RemoverFromDom}) => {
                                 <strong>Nombre:</strong> {producto.nombre} <br />
                                 <strong>Marca:</strong> {producto.marca} <br />
                                 <strong>Precio:</strong> {producto.precio}<strong>Gs.</strong> <br />
-                                <strong>Descripción:</strong> {producto.descripcion}
+                                <strong>Descripción:</strong> {producto.descripcion} <br/>
+                                <img className="prod-img" src={`http://localhost:8000${producto.imageUrl}`} alt={product.nombre} />
+
                                 <div>
                                 <button className="btnD" onClick={()=> deleteProduct(producto._id)}>Delete</button>
                                 <button className="btnU">

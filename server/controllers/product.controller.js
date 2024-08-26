@@ -5,6 +5,11 @@ const {request} = require('express');
 module.exports.agregarProducto = async (req, res) => {
     try {
       const { category, nombre, marca, precio, descripcion } = req.body;
+
+      //verifica si la imagen fue cargada correctamente
+      if(!req.file){
+        return res.status(400).json({error: "Imagen no cargada correctamente"})
+      }
   
       // Crear el nuevo producto
       const newProduct = await Product.create({
@@ -13,6 +18,7 @@ module.exports.agregarProducto = async (req, res) => {
         marca,
         precio,
         descripcion,
+        imageUrl: `/uploads/${req.file.filename}`// Guardar la URL de la imagen en la base de datos
       });
 
       console.log("New Product:", newProduct);

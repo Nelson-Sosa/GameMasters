@@ -21,6 +21,9 @@ const ProductSchema = new mongoose.Schema({
         type: String,
         require: [true]
     },
+    imageUrl:{
+        type: String
+    } //URL de la imagen
 })
 
 const Product = mongoose.model("Product", ProductSchema);
