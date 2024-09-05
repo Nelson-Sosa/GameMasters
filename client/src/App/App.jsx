@@ -7,6 +7,9 @@ import { useState } from 'react';
 import FormProduct from '../components/formProduct/formProduct';
 import FormRegistro from '../pages/formRegistro/formRegistro';
 import UpdateProduct from '../components/UpdateProduct/UpdateProduct';
+import { SupplierForm } from '../components/SupplierForm/SupplierForm';
+import Suppliers from '../pages/Suppliers/Suppliers';
+import UpdateSupplier from '../components/UpdateSupplier/UpdateSupplier';
 const App = ()=> {
   const [login, setLogin] = useState(false);
 
@@ -19,6 +22,9 @@ const App = ()=> {
       <Route path='/category/:category' element={ <Products />} />
       <Route path='/agregar/product' element={<FormProduct />}/>
       <Route path='/actualizar/product/:id' element={<UpdateProduct />} />
+      <Route path='/add/suppliers' element={<SupplierForm />}/>
+      <Route path='/suppliers' element={<Suppliers />}/>
+      <Route path='/edit/supplier/:id' element={<UpdateSupplier />} />
     </Routes>
     </div>
   );

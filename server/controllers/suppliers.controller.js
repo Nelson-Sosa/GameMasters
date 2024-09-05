@@ -1,6 +1,12 @@
 const Supplier = require('../models/Suppliers.model');
 const {request} = require('express');
 
+module.exports.editSupplier = (req, res) =>{
+    Supplier.findOneAndUpdate({_id: req.params.id}, req.body, {new:true})
+    .then(editSuppliers => res.json(editSuppliers))
+    .catch(err => res.json(err));
+}
+
 module.exports.addSuppliers = async (req, res) =>{
     try{
         const {nombre, apellido, ruc, telefono, correo, ciudad, codigoPostal} = req.body;
@@ -41,3 +47,9 @@ module.exports.allSuppliers = (req, res) =>{
     })
 
 }
+
+  module.exports.getSupplier = (req, res) =>{
+    Supplier.findOne({_id:req.params.id})
+    .then(supplier =>res.json(supplier))
+    .catch(error =>res.json(error))
+  }

@@ -61,7 +61,7 @@ const productSearch = async (e) =>{
         <Link to='/agregar/product'>Add product</Link>
         </button>
         <button className='btn'>
-        <Link to='*'>Add Supplier</Link>
+        <Link to='/add/suppliers'>Add Supplier</Link>
         </button>
         </div>
       </div>

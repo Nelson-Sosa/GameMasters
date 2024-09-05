@@ -17,7 +17,7 @@ export const Products = ({RemoverFromDom}) => {
             headers: {
                 token_usuario: localStorage.getItem("token")
             }
-           })
+        })
             .then(res =>{
             if(RemoverFromDom){
                 RemoverFromDom(productID);
@@ -77,9 +77,11 @@ export const Products = ({RemoverFromDom}) => {
 
                                 <div>
                                 <button className="btnD" onClick={()=> deleteProduct(producto._id)}>Delete</button>
-                                <button className="btnU">
-                                    <Link to={`/actualizar/product/${producto._id}`}>Update</Link>
-                                </button>
+                               
+                                    <Link to={`/actualizar/product/${producto._id}`}>
+                                     <button className="btnU">Update</button>
+                                     </Link>
+                               
                                 </div>
                             </li>
                         );

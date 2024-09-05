@@ -25,6 +25,8 @@ module.exports = (app) =>{
     app.post('/api/add/suppliers', validarToken, SuppliersController.addSuppliers);
     app.delete('/api/delete/supplier/:id', validarToken, SuppliersController.deleteSuppliers);
     app.get('/api/suppliers', validarToken, SuppliersController.allSuppliers);
+    app.put('/api/edit/supplier/:id', validarToken, SuppliersController.editSupplier);
+    app.get("/api/supplier/:id", validarToken, SuppliersController.getSupplier);
 }
 
 
