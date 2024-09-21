@@ -10,6 +10,7 @@ import UpdateProduct from '../components/UpdateProduct/UpdateProduct';
 import { SupplierForm } from '../components/SupplierForm/SupplierForm';
 import Suppliers from '../pages/Suppliers/Suppliers';
 import UpdateSupplier from '../components/UpdateSupplier/UpdateSupplier';
+import Checkout from '../pages/Checkout/Checkout';
 const App = ()=> {
   const [login, setLogin] = useState(false);
 
@@ -25,6 +26,7 @@ const App = ()=> {
       <Route path='/add/suppliers' element={<SupplierForm />}/>
       <Route path='/suppliers' element={<Suppliers />}/>
       <Route path='/edit/supplier/:id' element={<UpdateSupplier />} />
+      <Route path='/create-payment-intent' element={<Checkout />} />
     </Routes>
     </div>
   );

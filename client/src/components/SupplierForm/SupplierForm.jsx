@@ -52,7 +52,7 @@ export const SupplierForm = ()=>{
         return(
             <div className="cont-sup">
                 <button className="btn1">
-                    <Link to='/suppliers' >todos los suppliers</Link>
+                    <Link to='/suppliers' >All providers</Link>
                 </button>
                 <h2>Add Supplier</h2>
                 <form onSubmit={fetchSupplier}>

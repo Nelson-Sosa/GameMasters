@@ -3,10 +3,13 @@ import { useState, useEffect } from "react";
 import {useNavigate} from "react-router-dom";
 import '../Suppliers/Suppliers.css';
 import { Link } from "react-router-dom";
+import Modal from "../../components/Modal/Modal";
 
 const Suppliers = ({RemoverFromDom})=>{
     const [supplier, setSupplier] = useState([]);
     const navegar = useNavigate();
+    const [showModal, setShowModal] = useState(false);
+    const [currentSupplierID, setCurrentSupplier] = useState(null);
 
 
     const deleteSupplier = (supplierID) =>{
@@ -26,6 +29,15 @@ const Suppliers = ({RemoverFromDom})=>{
                 navegar('/login');
             }
         })
+    }
+    const handleDeleteClick = (supplierID) =>{
+        setCurrentSupplier(supplierID);
+        setShowModal(true);
+    }
+
+    const handleConfirmDelete = () =>{
+        deleteSupplier(currentSupplierID);
+        setShowModal(false);
     }
     
 
@@ -77,7 +89,7 @@ const Suppliers = ({RemoverFromDom})=>{
                             <td>{suppliers.correo}</td>
                             <td>{suppliers.ciudad}</td>
                             <td>{suppliers.codigoPostal}</td>
-                            <button className="btn-delete" onClick={()=>deleteSupplier(suppliers._id)}>Delete</button>
+                            <button className="btn-delete" onClick={()=>handleDeleteClick(suppliers._id)}>Delete</button>
                             <Link to={`/edit/supplier/${suppliers._id}`}>
                             <button className="btn-edit">Edit</button>
                             </Link>
@@ -86,6 +98,11 @@ const Suppliers = ({RemoverFromDom})=>{
                 })}
                     </tbody>
                 </table>
+                <Modal show={showModal}
+                onClose={()=> setShowModal(false)}
+                onConfirm={handleConfirmDelete}>
+                <p>¿Are you sure you want to remove this provider?</p>
+                </Modal>
         </div>
     )
 }

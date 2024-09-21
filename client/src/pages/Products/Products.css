@@ -2,9 +2,9 @@
   .btnD{
     padding: 8px 45px;
     margin: 12px;
-    border: 2px solid #f44f2e;
-    background-color: #f6f1f1;
-    color: #f05050;
+    border: none;
+    background-color: #f72222;
+    color: #e9e9e9;
     border-radius: 12px;
     font-size: 16px;
     font-weight: bold;
@@ -19,13 +19,14 @@
   .btnU{
     padding: 8px 45px;
     margin: 12px;
-    border: 2px solid #05666d;
-    color: #0d9fc4;
+    border: none;
+    color: #ffffff;
     border-radius: 12px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
+    background-color: #0366bd;
   }
   .btnU:hover{
     background-color: #1282e4;
@@ -87,4 +88,21 @@
 }
 .prod-img:hover{
   filter: grayscale(0%);
+}
+
+.btn-pagar{
+  padding: 8px 45px;
+  margin: 12px;
+  border: none;
+  color: #ffffff;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #05af7c;
+}
+
+.btn-pagar:hover{
+  background-color: rgba(18, 230, 230, 0.856);
 }

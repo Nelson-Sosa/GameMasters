@@ -2,7 +2,9 @@ import axios from "axios";
 import { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import '../formularioLogin/formularioLogin.css';
-import backgroundImage1 from '../../assets/images/minecraft.jpg';
+import backgroundImage1 from '../../assets/images/pexels-rdne-7915437.jpg';
+import { jwtDecode } from "jwt-decode";
+
 
 
 const FormularioLogin = (props) => {
@@ -24,6 +26,12 @@ const FormularioLogin = (props) => {
     if(res.status === 200){
       console.log("Inicio de sesión exitoso", datos);
       localStorage.setItem("token", datos.token);
+
+      const decodificar = jwtDecode(datos.token);
+      const userRole = decodificar.rol;
+      
+      localStorage.setItem("rol", userRole); // Guardar el rol en localStorage
+     
       props.setLogin(true);
       setError("");
       navegacion("/category/Pc Gamer");

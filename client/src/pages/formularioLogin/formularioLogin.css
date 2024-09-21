@@ -7,14 +7,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    
-    
-    
 }
 .contLogin form{
+    box-shadow: 0 4px 8px rgba(4, 229, 236, 0.897);
     
     margin-bottom: 250px;
-    border: 1px solid #474242;
+    border: 1px solid #3fb8ae;
     border-radius: 10px;
     background-color: #f9f9f9;
     padding: 25px;
@@ -59,7 +57,7 @@
     margin-top: 40px;
     font-size: 36px; /* Aumenta el tamaño de la fuente */
     font-weight: bold; /* Hace que el texto sea más grueso */
-    text-shadow: 2px 2px 4px rgba(0, 164, 185, 0.897); /* Añade una sombra al texto para mayor contraste */
+    text-shadow: 2px 2px 4px rgba(228, 90, 113, 0.897); /* Añade una sombra al texto para mayor contraste */
     text-align: center; /* Centra el texto */
     letter-spacing: 2px; /* Aumenta el espacio entre letras para un efecto más elegante */
 }

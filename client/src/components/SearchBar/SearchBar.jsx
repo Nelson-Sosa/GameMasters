@@ -1,7 +1,7 @@
 import './SearchBar.css'
 import axios from "axios";
 import backgroundImage from '../../assets/images/need-for-speed-hea.jpg';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
@@ -9,7 +9,13 @@ import { Link } from 'react-router-dom';
 const SearchBar = ({setSearchResultados}) =>{
 const [consulta, setConsulta] = useState('');
 const navigate = useNavigate();
+const [userRole, setUserRole] = useState(null);
 
+useEffect(()=>{
+  const roleFromStorage = localStorage.getItem('rol');
+  setUserRole(roleFromStorage);
+  console.log("Role recuperando: ",  roleFromStorage); // Log para verificar el rol
+}, []);
 
 const productSearch = async (e) =>{
   e.preventDefault();
@@ -57,13 +63,19 @@ const productSearch = async (e) =>{
           </div>
         </form>
         <div className='btn-cont'>
+        {userRole === "admi" &&
+           (
+        <>
         <button className="btn">
         <Link to='/agregar/product'>Add product</Link>
         </button>
         <button className='btn'>
         <Link to='/add/suppliers'>Add Supplier</Link>
         </button>
-        </div>
+        </>
+          )
+        }
+     </div>
       </div>
    
     )

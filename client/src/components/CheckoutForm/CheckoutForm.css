@@ -1,0 +1,15 @@
+.targ-cont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.targ-cont form{
+    border: 1px solid #bbb3b3;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+

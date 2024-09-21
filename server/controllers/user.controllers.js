@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 
 const SECRETO = "secreto";
 
-module.exports.todosLosUsuarios = (req, res) => {
+module.exports.todosLosUsuarios = (req, res) => {       
     console.log(req.infoUsuario);
 
     return Usuario.find()
@@ -36,7 +36,8 @@ module.exports.login =(req, res) =>{
             const infoEnToken = {
                 nombre: usuarioEncontrado.nombre,
                 apellido: usuarioEncontrado.apellido,
-                correo: usuarioEncontrado.correo
+                correo: usuarioEncontrado.correo,
+                rol: usuarioEncontrado.rol
             }
 
             jwt.sign(infoEnToken,  SECRETO, {expiresIn: "15m"}, (error, token) =>{
@@ -56,7 +57,7 @@ module.exports.login =(req, res) =>{
 
 module.exports.agregarUsuario = async (req, res) =>{
     try{
-        const {nombre, apellido, edad, correo, contraseña} = req.body;
+        const {nombre, apellido, edad, correo, contraseña, rol} = req.body;
 
         const existingUser = await Usuario.findOne({correo});
         if(existingUser){
@@ -69,14 +70,16 @@ module.exports.agregarUsuario = async (req, res) =>{
             apellido,
             edad,
             correo,
-            contraseña: bcrypt.hashSync(req.body.contraseña, saltGenerado)
+            contraseña: bcrypt.hashSync(req.body.contraseña, saltGenerado),
+            rol: rol || 'usuario' 
         });
         console.log("Nuevo usuario: ", newUser);
 
         const infoEnToken = {
             nombre: newUser.nombre,
             apellido: newUser.apellido,
-            correo: newUser.correo
+            correo: newUser.correo,
+            rol: newUser.rol
         }
 
         jwt.sign(infoEnToken,  SECRETO, {expiresIn: "15m"}, (error, token) =>{

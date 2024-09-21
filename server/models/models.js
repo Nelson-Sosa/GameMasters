@@ -23,6 +23,11 @@ const userSchema = new mongoose.Schema({
         type: String,
         require:[true, 'Password is required'],
         minlength: [5, 'Password must be at least 5 characters long']
+    },
+    rol:{
+        type: String,
+        enum: ['usuario', 'admi'], // Solo dos roles permitidos
+        default: 'usuario' // Por defecto, el rol será "usuario"
     }
 
 })

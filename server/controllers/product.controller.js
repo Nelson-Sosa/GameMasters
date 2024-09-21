@@ -1,6 +1,9 @@
 const { MongooseError } = require('mongoose');
 const Product = require('../models/product.models');
 const {request} = require('express');
+const Stripe = require('stripe');
+// Inicializamos Stripe con la clave secreta de prueba (sk_test_...)
+const stripe = Stripe('sk_test_51PxDMmRt6zQTXipIoi6NdMsHncrdJJkErnnL4pe50T2kjpBOZ39jyNZw4GePqz0uPaPOs3ZEx8BDQ7nTUGpUiAHZ00W3n2ShcA');
 
 module.exports.agregarProducto = async (req, res) => {
     try {
@@ -90,3 +93,22 @@ module.exports.agregarProducto = async (req, res) => {
       res.status(500).json({error: err.message});
     }
   }
+
+  module.exports.agregarPago  = async(req, res) => {
+    const { cantidad } = req.body; // Monto en centavos
+    try {
+        // Crear la intención de pago con Stripe  
+        const paymentIntent = await stripe.paymentIntents.create({
+            amount: cantidad, // La cantidad se espera en centavos (100 = $1.00 USD)
+            currency: 'usd',  // Moneda en la que se procesará el pago, en este caso, dólares estadounidenses
+        });
+        // Respondemos con el client_secret necesario para confirmar el pago en el frontend
+        res.status(200).send({
+            clientSecret: paymentIntent.client_secret, // Enviar client_secret al frontend
+        });
+
+    } catch(err) {
+        console.error("Error en agregarPago:", err.message);
+        res.status(500).send({ error: err.message });
+    }
+};
